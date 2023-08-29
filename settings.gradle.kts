@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "kredux"
 include(":app")
 include(":kredux-core")
+include(":kredux-side-effect")

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kredux-side-effect-js">
+    <output-path>$PROJECT_DIR$/kredux-side-effect/build/libs</output-path>
+    <root id="archive" name="kredux-side-effect-js.jar">
+      <element id="module-output" name="kredux.kredux-side-effect.jsMain" />
+    </root>
+  </artifact>
+</component>
