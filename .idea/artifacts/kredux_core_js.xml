@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kredux-core-js">
+    <output-path>$PROJECT_DIR$/kredux-core/build/libs</output-path>
+    <root id="archive" name="kredux-core-js.jar">
+      <element id="module-output" name="kredux.kredux-core.jsMain" />
+    </root>
+  </artifact>
+</component>
