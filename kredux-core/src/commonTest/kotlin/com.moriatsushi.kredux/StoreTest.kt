@@ -24,7 +24,7 @@ class StoreTest {
             coroutineScope = coroutineScope,
         )
 
-    data class TestState(val count: Int = 0)
+    private data class TestState(val count: Int = 0)
 
     private sealed interface TestAction {
         object Increment : TestAction

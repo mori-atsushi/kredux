@@ -1,7 +1,9 @@
 package com.moriatsushi.kredux
 
+import com.moriatsushi.kredux.internal.CombinedMiddleware
 import com.moriatsushi.kredux.internal.StoreImpl
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 
 interface Store<out State, in Action : Any> {
@@ -11,8 +13,10 @@ interface Store<out State, in Action : Any> {
 
 fun <State, Action : Any> createStore(
     reducer: Reducer<State, Action>,
-    coroutineScope: CoroutineScope,
+    middlewares: List<Middleware<State, Action>> = emptyList(),
+    coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default),
 ): Store<State, Action> = StoreImpl(
     reducer = reducer,
+    middleware = CombinedMiddleware(middlewares),
     coroutineScope = coroutineScope,
 )
