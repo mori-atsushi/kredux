@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kredux-compose-js">
+    <output-path>$PROJECT_DIR$/kredux-compose/build/libs</output-path>
+    <root id="archive" name="kredux-compose-js.jar">
+      <element id="module-output" name="kredux.kredux-compose.jsMain" />
+    </root>
+  </artifact>
+</component>
