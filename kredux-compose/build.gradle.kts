@@ -7,10 +7,19 @@ plugins {
 kotlin {
     android()
     jvm("desktop")
-    ios()
     js(IR) {
         browser()
     }
+    ios()
+    iosSimulatorArm64()
+    macosX64()
+    macosArm64()
+    watchos()
+    tvos()
+    tvosSimulatorArm64()
+
+    mingwX64()
+    linuxX64()
 
     sourceSets {
         val commonMain by getting {
