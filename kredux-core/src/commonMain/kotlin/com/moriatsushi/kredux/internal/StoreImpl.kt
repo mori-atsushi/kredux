@@ -13,12 +13,13 @@ import kotlinx.coroutines.launch
 
 internal class StoreImpl<State, Action : Any>(
     private val reducer: Reducer<State, Action>,
+    initialState: State,
     private val middleware: Middleware<State, Action>,
     coroutineScope: CoroutineScope,
 ) : Store<State, Action> {
     private val actionChannel = Channel<Action>(Channel.UNLIMITED)
 
-    private val _state = MutableStateFlow(reducer.initialState)
+    private val _state = MutableStateFlow(initialState)
     override val state: StateFlow<State> = _state.asStateFlow()
 
     private val middlewareScope = object : MiddlewareScope<State, Action> {

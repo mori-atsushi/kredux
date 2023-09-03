@@ -1,6 +1,5 @@
 package com.moriatsushi.kredux
 
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
@@ -11,18 +10,28 @@ import kotlin.test.assertEquals
 class StoreTest {
     @Test
     fun test() = runTest(UnconfinedTestDispatcher()) {
-        val subject = testStore(backgroundScope)
+        val subject = createStore(
+            reducer = testReducer,
+            coroutineScope = backgroundScope,
+        )
         assertEquals(subject.state.value.count, 0)
 
         subject.dispatch(TestAction.Increment)
         assertEquals(subject.state.value.count, 1)
     }
 
-    private fun testStore(coroutineScope: CoroutineScope): Store<TestState, TestAction> =
-        createStore(
+    @Test
+    fun testWithInitialState() = runTest(UnconfinedTestDispatcher()) {
+        val subject = createStore(
             reducer = testReducer,
-            coroutineScope = coroutineScope,
+            initialState = TestState(100),
+            coroutineScope = backgroundScope,
         )
+        assertEquals(subject.state.value.count, 100)
+
+        subject.dispatch(TestAction.Increment)
+        assertEquals(subject.state.value.count, 101)
+    }
 
     private data class TestState(val count: Int = 0)
 
