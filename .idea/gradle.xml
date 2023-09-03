@@ -11,7 +11,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/kredux-compose" />
             <option value="$PROJECT_DIR$/kredux-core" />
             <option value="$PROJECT_DIR$/kredux-side-effect" />
