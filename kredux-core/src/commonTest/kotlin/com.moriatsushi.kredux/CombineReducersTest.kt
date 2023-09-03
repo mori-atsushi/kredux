@@ -6,13 +6,13 @@ import kotlin.test.assertEquals
 class CombineReducersTest {
     @Test
     fun combineTwoReducers() {
-        val childReducer1 = createReducer(0) { acc, action: String ->
+        val childReducer1 = Reducer(0) { acc, action: String ->
             when (action) {
                 "child1:add" -> acc + 1
                 else -> acc
             }
         }
-        val childReducer2 = createReducer(0) { acc, action: String ->
+        val childReducer2 = Reducer(0) { acc, action: String ->
             when (action) {
                 "child2:add" -> acc + 1
                 else -> acc
@@ -37,7 +37,7 @@ class CombineReducersTest {
 
     @Test
     fun combineSameReducers() {
-        val childReducer = createReducer(0) { acc, action: String ->
+        val childReducer = Reducer(0) { acc, action: String ->
             when (action) {
                 "add" -> acc + 1
                 else -> acc
@@ -62,13 +62,13 @@ class CombineReducersTest {
 
     @Test
     fun mapToChildAction() {
-        val childReducer1 = createReducer(0) { acc, action: String ->
+        val childReducer1 = Reducer(0) { acc, action: String ->
             when (action) {
                 "add" -> acc + 1
                 else -> acc
             }
         }
-        val childReducer2 = createReducer(0) { acc, action: String ->
+        val childReducer2 = Reducer(0) { acc, action: String ->
             when (action) {
                 "add" -> acc + 1
                 else -> acc

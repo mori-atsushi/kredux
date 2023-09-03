@@ -1,7 +1,7 @@
 package com.moriatsushi.kredux.sideeffect
 
-import com.moriatsushi.kredux.createReducer
-import com.moriatsushi.kredux.createStore
+import com.moriatsushi.kredux.Reducer
+import com.moriatsushi.kredux.Store
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -15,7 +15,7 @@ import kotlin.test.assertEquals
 class SideEffectsTest {
     @Test
     fun test() = runTest(UnconfinedTestDispatcher()) {
-        val store = createStore(
+        val store = Store(
             reducer = testReducer,
             coroutineScope = backgroundScope,
             middlewares = listOf(sideEffects),
@@ -37,7 +37,7 @@ class SideEffectsTest {
         }
     }
 
-    private val testReducer = createReducer("Initial") { _, action: TestAction ->
+    private val testReducer = Reducer("Initial") { _, action: TestAction ->
         when (action) {
             is TestAction.Request -> "Request"
             is TestAction.Result -> "Result(${action.value})"

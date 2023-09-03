@@ -10,7 +10,7 @@ import kotlin.test.assertEquals
 class StoreTest {
     @Test
     fun test() = runTest(UnconfinedTestDispatcher()) {
-        val subject = createStore(
+        val subject = Store(
             reducer = testReducer,
             coroutineScope = backgroundScope,
         )
@@ -22,7 +22,7 @@ class StoreTest {
 
     @Test
     fun testWithInitialState() = runTest(UnconfinedTestDispatcher()) {
-        val subject = createStore(
+        val subject = Store(
             reducer = testReducer,
             initialState = TestState(100),
             coroutineScope = backgroundScope,
@@ -40,7 +40,7 @@ class StoreTest {
     }
 
     private val testReducer: Reducer<TestState, TestAction> =
-        createReducer(TestState()) { acc, action ->
+        Reducer(TestState()) { acc, action ->
             when (action) {
                 TestAction.Increment -> acc.copy(count = acc.count + 1)
             }

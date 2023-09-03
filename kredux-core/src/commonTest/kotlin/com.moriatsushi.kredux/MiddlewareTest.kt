@@ -10,7 +10,7 @@ import kotlin.test.assertEquals
 class MiddlewareTest {
     @Test
     fun test() = runTest(UnconfinedTestDispatcher()) {
-        val store = createStore(
+        val store = Store(
             reducer = testReducer,
             middlewares = listOf(
                 NamedMiddleware("middleware1"),
@@ -24,7 +24,7 @@ class MiddlewareTest {
         assertEquals(expected, store.state.value)
     }
 
-    private val testReducer = createReducer("initial") { acc, action: String ->
+    private val testReducer = Reducer("initial") { acc, action: String ->
         when (action) {
             "action" -> "state"
             else -> acc

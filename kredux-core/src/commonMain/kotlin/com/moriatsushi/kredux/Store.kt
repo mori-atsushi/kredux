@@ -11,7 +11,7 @@ interface Store<out State, in Action : Any> {
     fun dispatch(action: Action)
 }
 
-fun <State, Action : Any> createStore(
+fun <State, Action : Any> Store(
     reducer: Reducer<State, Action>,
     initialState: State = reducer.initialState,
     middlewares: List<Middleware<State, Action>> = emptyList(),

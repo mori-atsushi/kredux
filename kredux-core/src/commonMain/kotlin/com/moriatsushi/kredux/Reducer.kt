@@ -6,7 +6,7 @@ interface Reducer<State, in Action : Any> {
     fun reduce(acc: State, action: Action): State
 }
 
-fun <State, Action : Any> createReducer(
+fun <State, Action : Any> Reducer(
     initial: State,
     reducer: (acc: State, action: Action) -> State,
 ): Reducer<State, Action> {
