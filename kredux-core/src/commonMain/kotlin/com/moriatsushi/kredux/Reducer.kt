@@ -1,5 +1,7 @@
 package com.moriatsushi.kredux
 
+import com.moriatsushi.kredux.internal.ReducerImpl
+
 interface Reducer<State, in Action : Any> {
     val initialState: State
 
@@ -7,14 +9,11 @@ interface Reducer<State, in Action : Any> {
 }
 
 fun <State, Action : Any> Reducer(
-    initial: State,
+    initialState: State,
     reducer: (acc: State, action: Action) -> State,
 ): Reducer<State, Action> {
-    return object : Reducer<State, Action> {
-        override val initialState: State = initial
-
-        override fun reduce(acc: State, action: Action): State {
-            return reducer(acc, action)
-        }
-    }
+    return ReducerImpl(
+        initialState = initialState,
+        reducer = reducer,
+    )
 }
