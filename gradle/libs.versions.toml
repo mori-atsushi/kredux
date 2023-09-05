@@ -1,5 +1,5 @@
 [versions]
-androidGradlePlugin = "8.0.2"
+androidGradlePlugin = "8.1.1"
 composeMultiplatform = "1.5.0"
 kotlin = "1.8.20"
 kotlinxCoroutines = "1.7.3"
