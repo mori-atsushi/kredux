@@ -4,7 +4,7 @@ composeMultiplatform = "1.5.0"
 kotlin = "1.8.20"
 kotlinxCoroutines = "1.7.2"
 ktlint = "0.48.1"
-spotless = "6.20.0"
+spotless = "6.21.0"
 
 [libraries]
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
