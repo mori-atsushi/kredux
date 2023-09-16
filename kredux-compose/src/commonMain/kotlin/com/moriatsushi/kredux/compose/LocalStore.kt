@@ -1,6 +1,7 @@
 package com.moriatsushi.kredux.compose
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocal
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
@@ -15,12 +16,12 @@ fun <T : Store<*, *>> localStoreOf(): ProvidableCompositionLocal<T> {
 }
 
 @Composable
-fun <T : Store<S, *>, S, R> ProvidableCompositionLocal<T>.select(selector: (S) -> R): State<R> {
+fun <T : Store<S, *>, S, R> CompositionLocal<T>.select(selector: (S) -> R): State<R> {
     val state by current.state.collectAsState()
     return remember { derivedStateOf { selector(state) } }
 }
 
-val <T : Store<*, Action>, Action> ProvidableCompositionLocal<T>.dispatch: (Action) -> Unit
+val <T : Store<*, Action>, Action> CompositionLocal<T>.dispatch: (Action) -> Unit
     @Composable
     get() {
         val store = current
