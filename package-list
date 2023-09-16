@@ -1,0 +1,9 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:kredux-compose
+com.moriatsushi.kredux.compose
+module:kredux-core
+com.moriatsushi.kredux
+module:kredux-side-effect
+com.moriatsushi.kredux.sideeffect
