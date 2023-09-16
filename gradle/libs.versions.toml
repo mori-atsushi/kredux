@@ -5,6 +5,7 @@ dokka = "1.9.0"
 kotlin = "1.9.10"
 kotlinxCoroutines = "1.7.3"
 ktlint = "0.48.1"
+publish = "0.25.3"
 spotless = "6.21.0"
 
 [libraries]
@@ -17,4 +18,5 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

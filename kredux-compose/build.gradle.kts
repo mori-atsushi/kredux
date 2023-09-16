@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     id("com.android.library")
     alias(libs.plugins.dokka)
+    alias(libs.plugins.publish)
 }
 
 kotlin {
