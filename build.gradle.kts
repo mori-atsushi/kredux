@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.spotless) apply false
+    alias(libs.plugins.dokka)
 }
 
 subprojects {
@@ -26,4 +27,9 @@ subprojects {
                 )
         }
     }
+}
+
+tasks.dokkaHtmlMultiModule {
+    moduleVersion.set("1.0.0-alpha01")
+    outputDirectory.set(rootDir.resolve("docs"))
 }
