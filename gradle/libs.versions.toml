@@ -1,6 +1,6 @@
 [versions]
 androidGradlePlugin = "8.2.1"
-composeMultiplatform = "1.5.1"
+composeMultiplatform = "1.7.0"
 dokka = "1.9.0"
 kotlin = "1.9.10"
 kotlinxCoroutines = "1.7.3"
