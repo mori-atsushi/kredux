@@ -2,7 +2,7 @@
 androidGradlePlugin = "8.2.1"
 composeMultiplatform = "1.5.1"
 dokka = "1.9.0"
-kotlin = "1.9.10"
+kotlin = "1.9.25"
 kotlinxCoroutines = "1.7.3"
 ktlint = "0.48.1"
 publish = "0.25.3"
